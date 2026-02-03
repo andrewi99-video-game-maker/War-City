@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Knight War - Online Battle</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Auth Screen -->
+        <div id="auth-screen" class="screen">
+            <div class="auth-card">
+                <h1 class="game-title">CITY KNIGHT WAR</h1>
+                <div class="tabs">
+                    <button id="tab-login" class="active">Login</button>
+                    <button id="tab-register">Register</button>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Username">
+                    <input type="password" id="password" placeholder="Password">
+                    <button id="auth-submit">Enter Kingdom</button>
+                </div>
+                <p id="auth-error" class="error"></p>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="top-bar">
+                <div class="stat"><span class="icon">💰</span> <span id="gold">1000</span></div>
+                <div class="stat"><span class="icon">🌾</span> <span id="food">500</span></div>
+                <div class="stat"><span class="icon">💧</span> <span id="water">500</span></div>
+                <div class="stat"><span class="icon">👥</span> <span id="pop">0</span></div>
+                <div class="stat"><span class="icon">⚔️</span> <span id="knights-count">0</span></div>
+                <div id="day-timer" class="stat"><span class="icon">⏳</span> <span>05:00</span></div>
+                <button id="logout-btn">Leave Realm</button>
+            </div>
+
+            <canvas id="game-canvas"></canvas>
+
+            <div class="side-menu">
+                <h3>Build</h3>
+                <button class="build-btn" data-type="house">🏠 House (100g)</button>
+                <button class="build-btn" data-type="farm">🚜 Farm (150g)</button>
+                <button class="build-btn" data-type="barracks">🏰 Barracks (200g)</button>
+                <button class="build-btn" data-type="well">⛲ Well (100g)</button>
+                <button class="build-btn" data-type="wall">🧱 Wall (50g)</button>
+                <button class="build-btn" data-type="door">🚪 Door (80g)</button>
+                <button class="build-btn" data-type="cannon">💣 Cannon (300g)</button>
+                <button id="deconstruct-mode-btn">♻️ Deconstruct Mode</button>
+                <div class="market-row">
+                    <input type="number" id="trade-amount" value="10" min="2" step="2">
+                    <button id="sell-food-btn">Sell Food (2:1)</button>
+                </div>
+                <div class="market-row">
+                    <input type="number" id="trade-amount-water" value="9" min="3" step="3">
+                    <button id="sell-water-btn">Sell Water (3:1)</button>
+                </div>
+
+                <h3>Military</h3>
+                <div class="military-controls">
+                    <button id="stance-toggle-btn">🛡️ Stance: Aggressive</button>
+                    <button id="select-all-knights-btn">✅ Select All</button>
+                </div>
+                <div id="knight-training-form">
+                    <input type="text" id="knight-name" placeholder="Knight Name">
+                    <button id="train-knight-btn">⚔️ Train (50g, 20f)</button>
+                </div>
+                <div id="knight-list">
+                    <!-- Knights with checkboxes -->
+                </div>
+                <button id="steal-loot-btn" class="hidden">💰 Steal Loot (Must be near enemy center)</button>
+                <button id="find-battle-btn">🛡️ Scout Nearby City</button>
+                <button id="place-city-btn" class="hidden"
+                    style="background: #2563eb; color: white; margin-top: 10px; padding: 12px; border: 2px solid #3b82f6;">📍
+                    Establish Kingdom Here</button>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
